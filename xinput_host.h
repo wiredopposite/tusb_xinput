@@ -42,9 +42,20 @@
 #define XINPUT_GAMEPAD_Y 0x8000
 #define MAX_PACKET_SIZE 32
 
+typedef struct xinput_analog_buttons
+{
+    uint8_t a;
+    uint8_t b;
+    uint8_t x;
+    uint8_t y;
+    uint8_t white;
+    uint8_t black;
+} xinput_analog_buttons_t;
+
 typedef struct xinput_gamepad
 {
     uint16_t wButtons;
+    xinput_analog_buttons_t analogButtons;
     uint8_t bLeftTrigger;
     uint8_t bRightTrigger;
     int16_t sThumbLX;

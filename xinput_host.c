@@ -549,6 +549,14 @@ bool xinputh_xfer_cb(uint8_t dev_addr, uint8_t ep_addr, xfer_result_t result, ui
                 if (rdata[8] > 0x20) pad->wButtons |= XINPUT_GAMEPAD_RIGHT_SHOULDER;
                 if (rdata[9] > 0x20) pad->wButtons |= XINPUT_GAMEPAD_LEFT_SHOULDER;
 
+                //Map analog buttons
+                pad->analogButtons.a = rdata[4];
+                pad->analogButtons.b = rdata[5];
+                pad->analogButtons.x = rdata[6];
+                pad->analogButtons.y = rdata[7];
+                pad->analogButtons.black = rdata[8];
+                pad->analogButtons.white = rdata[9];
+                
                 //Map the left and right triggers
                 pad->bLeftTrigger = rdata[10];
                 pad->bRightTrigger = rdata[11];
